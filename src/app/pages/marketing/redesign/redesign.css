@@ -1,0 +1,155 @@
+/* ─── Redesign v2 — light cinematic layer ───────────────────────────────
+   Scoped under .fc-redesign so it never touches the rest of the app.
+   A premium LIGHT theme: soft cool-white base, editorial type, glass cards
+   over a gentle aurora. Two-accent system: electric blue (primary) + warm
+   gold (reserved strictly for "verified / premium / unlock" moments). */
+
+.fc-redesign {
+  --rd-bg:        #F4F6FD;   /* soft cool paper */
+  --rd-bg-2:      #EDF1FB;
+  --rd-surface:   #FFFFFF;
+  --rd-surface-2: #F7F9FE;
+  --rd-border:    #E4E9F5;
+  --rd-border-2:  #D3DBEE;
+  --rd-hair:      rgba(13,27,42,0.06);
+
+  --rd-ink:       #0C1428;   /* near-black navy */
+  --rd-ink-2:     #26314E;
+  --rd-muted:     #59648A;
+  --rd-muted-2:   #8A93B2;
+  --rd-faint:     #B7C0D8;
+
+  --rd-blue:      #2563EB;
+  --rd-blue-br:   #3B82F6;
+  --rd-blue-bg:   #EAF1FE;
+  --rd-gold:      #B7791F;   /* deep readable gold on light */
+  --rd-gold-br:   #D69B34;
+  --rd-gold-bg:   #FCF4E5;
+  --rd-green:     #12885A;
+  --rd-green-bg:  #E6F6EF;
+  --rd-red:       #C2410C;
+  --rd-red-bg:    #FDEEE7;
+
+  --rd-grad:      linear-gradient(135deg, #2563EB 0%, #4F8BFF 55%, #7DA8FF 100%);
+  --rd-grad-gold: linear-gradient(135deg, #B7791F 0%, #E0A94A 100%);
+  --rd-grad-mix:  linear-gradient(120deg, #2563EB 0%, #6366F1 45%, #B7791F 100%);
+
+  background: var(--rd-bg);
+  color: var(--rd-ink);
+  position: relative;
+}
+
+/* ── Ambient aurora: soft drifting color washes for depth (light) ── */
+.rd-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.rd-aurora span { position: absolute; border-radius: 50%; filter: blur(64px); will-change: transform; contain: paint; }
+.rd-aurora .a1 { top: -14%; left: -8%;  width: 44vw; height: 44vw; background: radial-gradient(circle, rgba(37,99,235,0.20), transparent 62%); animation: rdDrift1 24s ease-in-out infinite; }
+.rd-aurora .a2 { top: 2%;   right: -12%;width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(99,102,241,0.16), transparent 62%); animation: rdDrift2 28s ease-in-out infinite; }
+.rd-aurora .a3 { bottom: -22%; left: 30%; width: 38vw; height: 38vw; background: radial-gradient(circle, rgba(214,155,52,0.14), transparent 60%); animation: rdDrift3 32s ease-in-out infinite; }
+
+@keyframes rdDrift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(6%,8%) scale(1.12)} }
+@keyframes rdDrift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-7%,6%) scale(1.08)} }
+@keyframes rdDrift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(5%,-6%) scale(1.15)} }
+@media (prefers-reduced-motion: reduce) { .rd-aurora span { animation: none; } }
+
+/* ── Fine grid texture, masked to fade toward edges ── */
+.rd-grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(13,27,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,27,42,0.04) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 60% at 50% 38%, #000 38%, transparent 100%);
+          mask-image: radial-gradient(ellipse 78% 60% at 50% 38%, #000 38%, transparent 100%);
+}
+
+/* ── Glass card (frosted white) ── */
+.rd-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.7));
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 20px;
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: 0 30px 70px -34px rgba(13,27,42,0.32), 0 2px 8px rgba(13,27,42,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* ── Gradient-border card (Linear-style lit edge) ── */
+.rd-lit {
+  position: relative;
+  background: var(--rd-surface);
+  border-radius: 24px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 40px 90px -40px rgba(13,27,42,0.4), 0 2px 6px rgba(13,27,42,0.05);
+}
+.rd-lit::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+  background: linear-gradient(155deg, rgba(37,99,235,0.7), rgba(13,27,42,0.06) 42%, rgba(183,121,31,0.45));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Cursor spotlight overlay (driven by --mx / --my in JS) ── */
+.rd-spot::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(37,99,235,0.10), transparent 62%);
+  opacity: 0; transition: opacity 0.4s ease; z-index: 1;
+}
+.rd-spot:hover::after { opacity: 1; }
+
+/* ── Eyebrow chip ── */
+.rd-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rd-blue); background: var(--rd-blue-bg);
+  border: 1px solid rgba(37,99,235,0.16);
+}
+.rd-eyebrow.gold { color: var(--rd-gold); background: var(--rd-gold-bg); border-color: rgba(183,121,31,0.2); }
+
+/* ── Divider ── */
+.rd-hr { height: 1px; background: linear-gradient(90deg, transparent, var(--rd-border-2), transparent); }
+
+/* ── Buttons ── */
+.rd-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-weight: 700; border-radius: 12px; cursor: pointer; border: none;
+  transition: transform 0.16s ease, box-shadow 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+.rd-btn-primary {
+  background: var(--rd-grad); color: #fff;
+  box-shadow: 0 14px 30px -12px rgba(37,99,235,0.55), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.rd-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 42px -14px rgba(37,99,235,0.65), inset 0 1px 0 rgba(255,255,255,0.35); }
+.rd-btn-primary:active { transform: translateY(0) scale(0.98); }
+.rd-btn-gold { background: var(--rd-grad-gold); color: #fff; box-shadow: 0 14px 30px -12px rgba(183,121,31,0.5); }
+.rd-btn-gold:hover { transform: translateY(-2px); }
+.rd-btn-dark { background: var(--rd-ink); color: #fff; box-shadow: 0 14px 30px -14px rgba(13,27,42,0.55); }
+.rd-btn-dark:hover { transform: translateY(-2px); }
+.rd-btn-ghost { background: var(--rd-surface); color: var(--rd-ink); border: 1.5px solid var(--rd-border-2); }
+.rd-btn-ghost:hover { background: var(--rd-surface-2); transform: translateY(-1px); }
+
+/* ── Numeric display ── */
+.rd-num { font-family: 'Inter', system-ui, sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+
+/* ── Headline gradient ink (used sparingly) ── */
+.rd-grad-text {
+  background: var(--rd-grad-mix); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; padding-bottom: 0.06em;
+}
+@keyframes rdShimmer { to { background-position: 200% center; } }
+.rd-shimmer {
+  background: linear-gradient(110deg, #2563EB 0%, #4F8BFF 28%, #D69B34 50%, #4F8BFF 72%, #2563EB 100%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; padding-bottom: 0.06em;
+  animation: rdShimmer 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .rd-shimmer { animation: none; } }
+
+/* Pulsing "live" dot ping */
+@keyframes rdPing { 75%, 100% { transform: scale(2.2); opacity: 0; } }
+
+/* Chat typing dots */
+@keyframes rdBlink { 0%, 100% { opacity: 0.3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#2563EB" />
+    <!-- Security meta tags — hosting-level headers in _headers / vercel.json
+         are authoritative; these act as a browser-level fallback. -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Favicons + PWA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Default meta — Helmet overrides per route at runtime. These are
+         what social-media bots that don't run JS see, so they target the
+         landing page (the most-shared URL). -->
+    <title>FounderCentral — Warm intros to investors who back your stage</title>
+    <meta
+      name="description"
+      content="FounderCentral matches founders with investors whose thesis fits their sector, stage, and check size, then opens the door with a warm intro. Free for founders. The Hub for Ambitious Founders."
+    />
+    <link rel="canonical" href="https://foundercentral.in/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FounderCentral" />
+    <meta property="og:title" content="FounderCentral — Warm intros to investors who back your stage" />
+    <meta
+      property="og:description"
+      content="FounderCentral matches founders with investors whose thesis fits their sector, stage, and check size, then opens the door with a warm intro. Free for founders."
+    />
+    <meta property="og:url" content="https://foundercentral.in/" />
+    <meta property="og:image" content="https://foundercentral.in/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@_foundercentral" />
+    <meta name="twitter:creator" content="@_foundercentral" />
+    <meta name="twitter:title" content="FounderCentral — Warm intros to investors who back your stage" />
+    <meta
+      name="twitter:description"
+      content="FounderCentral matches founders with investors whose thesis fits their sector, stage, and check size, then opens the door with a warm intro. Free for founders."
+    />
+    <meta name="twitter:image" content="https://foundercentral.in/logo.png" />
+
+    <!-- RSS autodiscovery -->
+    <link rel="alternate" type="application/rss+xml" title="FounderCentral Blog" href="https://foundercentral.in/feed.xml" />
+
+    <!-- Search-engine verification placeholders. Paste the codes given by
+         Google Search Console and Bing Webmaster Tools after deploy. -->
+    <meta name="google-site-verification" content="REPLACE_WITH_GSC_CODE" />
+    <meta name="msvalidate.01" content="REPLACE_WITH_BING_CODE" />
+
+    <!-- Performance: warm up connections to critical origins -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://wqbdsoaedlnbnvdkcwcg.supabase.co" />
+    <link rel="preconnect" href="https://wqbdsoaedlnbnvdkcwcg.supabase.co" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800&display=swap" rel="stylesheet" /></noscript>
+    <!-- Inter: referenced by --font-num / .kpi-number for tabular numerals.
+         Loaded synchronously — the print→all onload trick used previously
+         triggers a CSP inline-handler violation. Inter is a secondary font
+         (tabular numbers only) so the synchronous load cost is negligible. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured data: Organization + WebSite + SoftwareApplication.
+         These let Google show rich previews in search and feed AI search
+         engines (Perplexity, ChatGPT, etc.) reliable facts about us. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FounderCentral",
+      "url": "https://foundercentral.in",
+      "logo": "https://foundercentral.in/logo.png",
+      "description": "FounderCentral matches founders with investors whose thesis fits their sector, stage, and check size, then opens the door with a warm intro.",
+      "slogan": "The Hub for Ambitious Founders",
+      "foundingDate": "2026",
+      "sameAs": [
+        "https://x.com/_foundercentral",
+        "https://instagram.com/foundercentral.in"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FounderCentral",
+      "url": "https://foundercentral.in",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://foundercentral.in/dashboard/browse-investors?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FounderCentral",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "url": "https://foundercentral.in",
+      "description": "Discovery and warm-introduction platform for startup founders and verified investors.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "0",
+        "ratingCount": "0"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is FounderCentral free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free for founders. Always. We don't charge to make introductions. That's the whole job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can join as a founder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anyone running a real company. We don't gate by stage, traction, or geography. We do verify you are who you say you are."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does matching actually work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Investors publish a thesis: stage, check size, sector, geography. We rank you against it and show the matches. You can see why every match was made. No black box."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after an investor accepts my intro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You both get each other's email. The product steps out. The conversation moves to email, where deals actually get worked."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there fake or scraped investor profiles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every investor is human-checked before they're listed. If a fake slips in, it's down within hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does sign-up take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About 8 minutes for the one-pager. You can edit anything later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can investors see my profile without permission?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They see what you make public. Your deck, your raise size, your traction: those are shared only when you accept their intro request."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to get warm intros to investors on FounderCentral",
+      "description": "Three steps to get matched with the right investors and request a warm introduction. Takes about ten minutes.",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Build your one-pager",
+          "text": "Fill in your stage, sector, traction, and ask. The same questions every investor asks on the first call — answered once.",
+          "url": "https://foundercentral.in/#how-it-works"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Get matched with investors",
+          "text": "Investors on FounderCentral have stated theses: stage, check size, sector, geography. We rank you against them and show the ones that actually fit — a short, ranked list, not a 50,000-name database.",
+          "url": "https://foundercentral.in/#how-it-works"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Request a warm intro",
+          "text": "One click sends the request. When the investor accepts, you both get each other's email. The product steps out. You take the conversation from there.",
+          "url": "https://foundercentral.in/#how-it-works"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
