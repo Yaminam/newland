@@ -9,8 +9,3 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
-
-// Setup security logging after paint
-requestIdleCallback(() => {
-  import('./app/lib/securityEvents').then(m => m.setupGlobalSecurityLogging())
-})

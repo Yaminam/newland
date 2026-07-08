@@ -1,6 +1,4 @@
-import { Navigate } from 'react-router-dom'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-import { useAuth } from '@/app/context/AuthContext'
 import { SEO } from '@/app/components/SEO'
 import { ScrollProgress } from '../lib/ScrollProgress'
 import { RevealOnScroll } from '../lib/RevealOnScroll'
@@ -31,13 +29,9 @@ import './redesign.css'
  * gold verified gatekeeping (Cred), sticky-stack how-it-works (Beside).
  */
 export function RedesignLanding() {
-  const { isAuthenticated, isLoading } = useAuth()
   const reduce = useReducedMotion()
   const { scrollY } = useScroll()
   const auroraY = useTransform(scrollY, [0, 900], [0, 180])
-
-  if (isLoading) return null
-  if (isAuthenticated) return <Navigate to="/dashboard" replace />
 
   return (
     <div className="fc-redesign" style={{ position: 'relative', minHeight: '100dvh' }}>
