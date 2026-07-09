@@ -11,7 +11,7 @@ const PHOTO = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto
 export function FoundersBand() {
   const reduce = useReducedMotion()
   return (
-    <section style={{ background: '#0C1428' }}>
+    <section style={{ background: '#0D1B2A' }}>
       <div
         className="relative"
         style={{
@@ -39,7 +39,7 @@ export function FoundersBand() {
               Warm intros used to be a privilege of the well-connected. FounderCentral opens that same door to every founder with a real company, wherever you are and whoever you know.
             </p>
             <Link to="/auth/signup" className="mt-9 inline-flex items-center gap-2 rounded-xl font-bold transition-transform"
-              style={{ height: 52, padding: '0 26px', background: '#fff', color: '#0C1428', fontSize: '15px' }}
+              style={{ height: 52, padding: '0 26px', background: '#fff', color: '#0D1B2A', fontSize: '15px' }}
               onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
               onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}>
               Find my investors <ArrowRight className="h-4 w-4" />

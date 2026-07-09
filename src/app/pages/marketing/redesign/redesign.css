@@ -13,7 +13,7 @@
   --rd-border-2:  #D3DBEE;
   --rd-hair:      rgba(13,27,42,0.06);
 
-  --rd-ink:       #0C1428;   /* near-black navy */
+  --rd-ink:       #0D1B2A;   /* brand navy, straight from the logo */
   --rd-ink-2:     #26314E;
   --rd-muted:     #59648A;
   --rd-muted-2:   #8A93B2;
@@ -30,9 +30,10 @@
   --rd-red:       #C2410C;
   --rd-red-bg:    #FDEEE7;
 
-  --rd-grad:      linear-gradient(135deg, #2563EB 0%, #4F8BFF 55%, #7DA8FF 100%);
+  /* All blues stay in the logo's family: #2563EB → #3B82F6 → #60A5FA. */
+  --rd-grad:      linear-gradient(135deg, #2563EB 0%, #3B82F6 55%, #60A5FA 100%);
   --rd-grad-gold: linear-gradient(135deg, #B7791F 0%, #E0A94A 100%);
-  --rd-grad-mix:  linear-gradient(120deg, #2563EB 0%, #6366F1 45%, #B7791F 100%);
+  --rd-grad-mix:  linear-gradient(115deg, #2563EB 0%, #3B82F6 42%, #B7791F 100%);
 
   background: var(--rd-bg);
   color: var(--rd-ink);
@@ -43,7 +44,7 @@
 .rd-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .rd-aurora span { position: absolute; border-radius: 50%; filter: blur(64px); will-change: transform; contain: paint; }
 .rd-aurora .a1 { top: -14%; left: -8%;  width: 44vw; height: 44vw; background: radial-gradient(circle, rgba(37,99,235,0.20), transparent 62%); animation: rdDrift1 24s ease-in-out infinite; }
-.rd-aurora .a2 { top: 2%;   right: -12%;width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(99,102,241,0.16), transparent 62%); animation: rdDrift2 28s ease-in-out infinite; }
+.rd-aurora .a2 { top: 2%;   right: -12%;width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(30,64,175,0.16), transparent 62%); animation: rdDrift2 28s ease-in-out infinite; }
 .rd-aurora .a3 { bottom: -22%; left: 30%; width: 38vw; height: 38vw; background: radial-gradient(circle, rgba(214,155,52,0.14), transparent 60%); animation: rdDrift3 32s ease-in-out infinite; }
 
 @keyframes rdDrift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(6%,8%) scale(1.12)} }
@@ -141,7 +142,7 @@
 }
 @keyframes rdShimmer { to { background-position: 200% center; } }
 .rd-shimmer {
-  background: linear-gradient(110deg, #2563EB 0%, #4F8BFF 28%, #D69B34 50%, #4F8BFF 72%, #2563EB 100%);
+  background: linear-gradient(110deg, #2563EB 0%, #3B82F6 28%, #D69B34 50%, #3B82F6 72%, #2563EB 100%);
   background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
   color: transparent; -webkit-text-fill-color: transparent; padding-bottom: 0.06em;
   animation: rdShimmer 5s linear infinite;

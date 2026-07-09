@@ -205,7 +205,7 @@ export function HeroMatcher() {
                       )}
                     </AnimatePresence>
 
-                    <div className="mt-2 flex items-center justify-between gap-2 rounded-xl px-3.5 py-3 text-white" style={{ background: 'linear-gradient(120deg,#0C1428,#1E3A5F)' }}>
+                    <div className="mt-2 flex items-center justify-between gap-2 rounded-xl px-3.5 py-3 text-white" style={{ background: 'linear-gradient(120deg,#0D1B2A,#1E3A5F)' }}>
                       <span className="inline-flex items-center gap-2 text-[12px] font-medium"><Lock className="h-3.5 w-3.5" style={{ color: 'var(--rd-gold-br)' }} /> +{m.locked} more match you</span>
                       <Link to="/auth/signup" className="inline-flex items-center gap-1 text-[12px] font-bold" style={{ color: 'var(--rd-gold-br)' }}>Unlock all {m.matches} <ArrowRight className="h-3.5 w-3.5" /></Link>
                     </div>

@@ -8,7 +8,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const list: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.04 } } }
 const col: Variants = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } } }
 
-const NEWS_TONES = ['#6366F1', '#0D9488', '#B7791F']
+const NEWS_TONES = ['#2563EB', '#0D9488', '#B7791F']
 
 function Card({ icon: Icon, label, more, children }: { icon: typeof GraduationCap; label: string; more: string; children: React.ReactNode }) {
   return (

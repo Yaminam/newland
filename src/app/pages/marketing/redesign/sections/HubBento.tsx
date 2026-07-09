@@ -161,7 +161,7 @@ export function HubBento() {
           {/* AI copilot — full-width accent tile with a live chat preview */}
           <Tilt className="md:col-span-3">
             <div className="relative grid items-center gap-6 overflow-hidden rounded-2xl p-7 md:grid-cols-[1fr_0.85fr]"
-              style={{ background: 'linear-gradient(120deg,#2563EB,#4F46E5 60%,#1E40AF)', boxShadow: '0 24px 50px -24px rgba(37,99,235,0.55)' }}>
+              style={{ background: 'linear-gradient(120deg,#2563EB,#1D4ED8 60%,#1E3A8A)', boxShadow: '0 24px 50px -24px rgba(37,99,235,0.55)' }}>
               <div aria-hidden className="pointer-events-none absolute" style={{ top: '-50%', right: '8%', width: 260, height: 260, borderRadius: '50%', background: 'radial-gradient(circle, rgba(240,185,90,0.35), transparent 60%)', filter: 'blur(14px)' }} />
               <div className="relative">
                 <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: 'rgba(255,255,255,0.18)', color: '#fff' }}><Sparkles className="h-6 w-6" /></span>
@@ -176,7 +176,7 @@ export function HubBento() {
 
               {/* Chat preview */}
               <div className="relative rounded-2xl p-3.5" style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)' }}>
-                <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-md px-3 py-2 text-[11.5px] font-semibold" style={{ background: 'rgba(255,255,255,0.92)', color: '#0C1428' }}>
+                <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-md px-3 py-2 text-[11.5px] font-semibold" style={{ background: 'rgba(255,255,255,0.92)', color: '#0D1B2A' }}>
                   Who should I talk to next?
                 </div>
                 <div className="mt-2 max-w-[88%] rounded-2xl rounded-tl-md px-3 py-2 text-[11.5px] leading-relaxed" style={{ background: 'rgba(255,255,255,0.16)', color: 'rgba(255,255,255,0.95)' }}>

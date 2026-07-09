@@ -11,7 +11,7 @@ export function FinalCTA() {
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-24">
         <motion.div
           className="relative overflow-hidden rounded-[32px] px-8 py-16 text-center sm:px-14 sm:py-20"
-          style={{ background: 'linear-gradient(135deg,#2563EB 0%,#4F46E5 52%,#1E40AF 100%)' }}
+          style={{ background: 'linear-gradient(135deg,#2563EB 0%,#1D4ED8 52%,#1E3A8A 100%)' }}
           initial={reduce ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
