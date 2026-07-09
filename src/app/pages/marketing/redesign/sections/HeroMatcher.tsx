@@ -177,8 +177,8 @@ export function HeroMatcher() {
                       ) : (
                         <motion.div key={m.comboKey} variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} animate="show" className="flex flex-col gap-2">
                           {m.top.map(inv => (
-                            <motion.div key={inv.name} variants={reduce ? undefined : row} className="flex items-center gap-3 rounded-xl p-3" style={{ background: 'var(--rd-surface-2)', border: '1px solid var(--rd-border)' }}>
-                              <img src={`https://api.dicebear.com/9.x/glass/svg?seed=${encodeURIComponent(inv.name)}`} alt="" width={46} height={46} loading="lazy" className="shrink-0 rounded-xl" style={{ border: '1px solid var(--rd-border)' }} />
+                            <motion.div key={inv.name} variants={reduce ? undefined : row} className="flex items-start gap-3 rounded-xl p-3" style={{ background: 'var(--rd-surface-2)', border: '1px solid var(--rd-border)' }}>
+                              <MatchRing score={inv.fit} size={48} />
                               <div className="min-w-0 flex-1">
                                 {/* Name + verified + type */}
                                 <div className="flex items-center gap-1.5">
@@ -199,7 +199,6 @@ export function HeroMatcher() {
                                   <span className="inline-flex items-center gap-1 rd-num font-semibold" style={{ color: 'var(--rd-ink-2)' }}><Wallet className="h-3 w-3" style={{ color: 'var(--rd-muted-2)' }} /> {inv.cheque}</span>
                                 </div>
                               </div>
-                              <MatchRing score={inv.fit} size={36} />
                             </motion.div>
                           ))}
                         </motion.div>
