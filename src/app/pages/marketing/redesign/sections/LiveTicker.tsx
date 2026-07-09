@@ -20,10 +20,11 @@ const ROW_B = [
 
 function Pill({ text }: { text: string }) {
   return (
-    <span className="mx-2 inline-flex shrink-0 items-center gap-2.5 rounded-full px-4 py-2.5 text-[13.5px] font-semibold"
+    <span className="mx-2 inline-flex shrink-0 items-center gap-2.5 rounded-full py-1.5 pl-1.5 pr-4 text-[13.5px] font-semibold"
       style={{ background: 'var(--rd-surface)', border: '1px solid var(--rd-border)', color: 'var(--rd-ink-2)', boxShadow: '0 2px 6px rgba(13,27,42,0.04)' }}>
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: 'var(--rd-green)', boxShadow: '0 0 0 3px var(--rd-green-bg)' }} />
+      <img src={`https://api.dicebear.com/9.x/glass/svg?seed=${encodeURIComponent(text)}`} alt="" width={26} height={26} loading="lazy" className="shrink-0 rounded-full" />
       {text}
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: 'var(--rd-green)' }} />
     </span>
   )
 }

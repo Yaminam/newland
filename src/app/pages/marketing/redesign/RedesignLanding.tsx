@@ -11,6 +11,7 @@ import { HeroMatcher } from './sections/HeroMatcher'
 import { LiveTicker } from './sections/LiveTicker'
 import { Proof } from './sections/Proof'
 import { Transformation } from './sections/Transformation'
+import { FoundersBand } from './sections/FoundersBand'
 import { HubBento } from './sections/HubBento'
 import { VerifiedSupply } from './sections/VerifiedSupply'
 import { LiveHub } from './sections/LiveHub'
@@ -55,6 +56,7 @@ export function RedesignLanding() {
         <LiveTicker />
         <RevealOnScroll><Proof /></RevealOnScroll>
         <RevealOnScroll><Transformation /></RevealOnScroll>
+        <FoundersBand />
         <RevealOnScroll><HubBento /></RevealOnScroll>
         <RevealOnScroll><VerifiedSupply /></RevealOnScroll>
         <RevealOnScroll><LiveHub /></RevealOnScroll>
