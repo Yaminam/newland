@@ -14,7 +14,7 @@ const POINTS: Record<Audience, string[]> = {
 }
 
 // Each card jumps to that audience's own full section further down the page.
-const TARGET: Record<Audience, string> = { founders: '#how-it-works', investors: '#for-investors', incubators: '#for-incubators' }
+const TARGET: Record<Audience, string> = { founders: '#for-founders', investors: '#for-investors', incubators: '#for-incubators' }
 
 export function Audiences() {
   const reduce = useReducedMotion()

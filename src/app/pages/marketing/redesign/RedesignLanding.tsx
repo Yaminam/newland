@@ -12,6 +12,7 @@ import { LiveTicker } from './sections/LiveTicker'
 import { Proof } from './sections/Proof'
 import { Audiences } from './sections/Audiences'
 import { NetworkMotif } from './sections/NetworkMotif'
+import { ForFounders } from './sections/ForFounders'
 import { ForInvestors } from './sections/ForInvestors'
 import { ForIncubators } from './sections/ForIncubators'
 import { Transformation } from './sections/Transformation'
@@ -68,6 +69,8 @@ export function RedesignLanding() {
         <RevealOnScroll><LiveHub /></RevealOnScroll>
         <RevealOnScroll><FreeVsGated /></RevealOnScroll>
         <HowItWorks />
+        {/* One dedicated lane per audience. */}
+        <ForFounders />
         <ForInvestors />
         <ForIncubators />
         <RevealOnScroll><FAQ /></RevealOnScroll>

@@ -19,11 +19,11 @@ const POINTS = [
 export function ForIncubators() {
   const reduce = useReducedMotion()
   return (
-    <section id="for-incubators" style={{ background: 'var(--rd-bg)' }}>
+    <section id="for-incubators" style={{ background: 'var(--rd-surface)', borderTop: '1px solid var(--rd-border)', borderBottom: '1px solid var(--rd-border)' }}>
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10 lg:py-24">
-        {/* Panel on the left this time, so the two audience lanes don't read as the same block twice. */}
-        <div className="grid items-center gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:gap-14">
-          <motion.div className="relative order-2 lg:order-1"
+        {/* Copy left, panel right, mirroring the founders lane. */}
+        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
+          <motion.div className="relative order-2"
             initial={reduce ? false : { opacity: 0, y: 26, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-70px' }}
@@ -32,7 +32,7 @@ export function ForIncubators() {
             <IncubatorPanel />
           </motion.div>
 
-          <motion.div className="order-1 lg:order-2" variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-70px' }}>
+          <motion.div className="order-1" variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-70px' }}>
             <motion.span variants={reduce ? undefined : item} className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[0.14em]"
               style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)', border: '1px solid rgba(18,136,90,0.22)' }}>
               For incubators &amp; accelerators

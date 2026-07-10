@@ -29,6 +29,42 @@ const Blur = ({ t, w }: { t: string; w: string }) => (
 )
 const rowStyle: React.CSSProperties = { background: 'var(--rd-surface-2)', border: '1px solid var(--rd-border)', borderRadius: 12, padding: 10 }
 
+/* ── Founders: the one-pager you build once ───────────────────────────── */
+const FIELDS = [
+  { k: 'Stage', v: 'Seed' },
+  { k: 'Sector', v: 'Vertical SaaS' },
+  { k: 'Raising', v: '₹3 Cr' },
+  { k: 'Traction', v: '₹40 L ARR' },
+]
+
+export function FounderPanel() {
+  return (
+    <Frame title="Your one-pager" right={<span className="inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[10px] font-bold" style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)' }}><Check className="h-2.5 w-2.5" strokeWidth={4} /> Investor-ready</span>}>
+      <div className="mb-2 flex items-center gap-3" style={rowStyle}>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[13px] font-extrabold text-white" style={{ background: 'var(--rd-grad)' }}>L</span>
+        <div className="min-w-0 flex-1"><Blur t="Ledgerly" w="w-20" /><div className="mt-0.5 text-[10.5px]" style={{ color: 'var(--rd-muted)' }}>Bangalore · 2 founders</div></div>
+      </div>
+      <div className="flex flex-col gap-1.5">
+        {FIELDS.map(f => (
+          <div key={f.k} className="flex items-center justify-between px-1 py-1.5" style={{ borderBottom: '1px dashed var(--rd-border)' }}>
+            <span className="text-[11px] font-semibold" style={{ color: 'var(--rd-muted-2)' }}>{f.k}</span>
+            <span className="rd-num text-[11.5px] font-bold" style={{ color: 'var(--rd-ink-2)' }}>{f.v}</span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex items-center gap-2">
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full" style={{ background: 'var(--rd-border-2)' }}>
+          <div className="h-full rounded-full" style={{ width: '100%', background: 'var(--rd-green)' }} />
+        </div>
+        <span className="rd-num shrink-0 text-[10px] font-bold" style={{ color: 'var(--rd-green)' }}>100% complete</span>
+      </div>
+      <div className="mt-3 flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-[11.5px] font-bold" style={{ background: 'var(--rd-blue-bg)', color: 'var(--rd-blue)' }}>
+        Shared only when you accept an intro
+      </div>
+    </Frame>
+  )
+}
+
 /* ── Investors: pre-qualified deal flow on your thesis ────────────────── */
 const DEALS = [
   { fit: 95, name: 'Ledgerly', meta: 'Seed · ₹3 Cr ask · Vertical SaaS' },

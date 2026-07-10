@@ -18,11 +18,12 @@ const POINTS = [
 export function ForInvestors() {
   const reduce = useReducedMotion()
   return (
-    <section id="for-investors" style={{ background: 'var(--rd-surface)', borderTop: '1px solid var(--rd-border)', borderBottom: '1px solid var(--rd-border)' }}>
+    <section id="for-investors" style={{ background: 'var(--rd-bg)' }}>
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
+        {/* Panel on the left, so this lane mirrors the founders lane above it. */}
+        <div className="grid items-center gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:gap-14">
           {/* Copy */}
-          <motion.div variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-70px' }}>
+          <motion.div className="order-1 lg:order-2" variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-70px' }}>
             <motion.span variants={reduce ? undefined : item} className="rd-eyebrow gold mb-5">For investors</motion.span>
 
             <motion.h2 variants={reduce ? undefined : item} className="font-bold"
@@ -64,7 +65,7 @@ export function ForInvestors() {
           </motion.div>
 
           {/* Live deal-flow panel */}
-          <motion.div className="relative"
+          <motion.div className="relative order-2 lg:order-1"
             initial={reduce ? false : { opacity: 0, y: 26, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-70px' }}
