@@ -9,8 +9,10 @@ const EASE = [0.22, 1, 0.36, 1] as const
 interface NavItem { label: string; href: string; desc: string; external?: boolean }
 interface NavGroupDef { label: string; items: NavItem[] }
 
-/* Three umbrella terms instead of eight links. Everything is an on-page
-   anchor except the Blog, which lives on the main site. */
+/* Three umbrella terms instead of eight links. Labels are deliberately
+   plain so nobody has to guess what's behind them; the personality lives
+   in the item descriptions. Everything is an on-page anchor except the
+   Blog, which lives on the main site. */
 const NAV: NavGroupDef[] = [
   {
     label: 'Product',
