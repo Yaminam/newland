@@ -129,7 +129,7 @@ const FEATURES: Feature[] = [
 export function HubBento() {
   const reduce = useReducedMotion()
   return (
-    <section style={{ background: 'var(--rd-surface)', borderTop: '1px solid var(--rd-border)', borderBottom: '1px solid var(--rd-border)' }}>
+    <section id="features" style={{ background: 'var(--rd-surface)', borderTop: '1px solid var(--rd-border)', borderBottom: '1px solid var(--rd-border)' }}>
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-10 lg:py-24">
         <div className="max-w-2xl">
           <span className="rd-eyebrow mb-5">One hub</span>

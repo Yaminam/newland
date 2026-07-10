@@ -15,6 +15,8 @@ import { NetworkMotif } from './sections/NetworkMotif'
 import { ForFounders } from './sections/ForFounders'
 import { ForInvestors } from './sections/ForInvestors'
 import { ForIncubators } from './sections/ForIncubators'
+import { About } from './sections/About'
+import { Newsletter } from './sections/Newsletter'
 import { Transformation } from './sections/Transformation'
 import { FoundersBand } from './sections/FoundersBand'
 import { HubBento } from './sections/HubBento'
@@ -73,6 +75,8 @@ export function RedesignLanding() {
         <ForFounders />
         <ForInvestors />
         <ForIncubators />
+        <RevealOnScroll><About /></RevealOnScroll>
+        <RevealOnScroll><Newsletter /></RevealOnScroll>
         <RevealOnScroll><FAQ /></RevealOnScroll>
         <RevealOnScroll><FinalCTA /></RevealOnScroll>
       </main>

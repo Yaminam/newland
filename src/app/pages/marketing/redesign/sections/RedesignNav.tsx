@@ -5,16 +5,22 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-
 import { FounderCentralLogo } from '@/app/components/FounderCentralLogo'
 
 // The redesign cuts the navbar to the decision: three ways in, one smart CTA.
-// Landing-only build: every link is an on-page anchor. The audience links
-// point at the "Who it's for" section, which routes back to the hero toggle.
+// Landing-only build, so every link is an on-page anchor. Blog is the one
+// exception: there's no blog on a single page, so it opens the live one.
 const NAV_LINKS = [
-  { label: 'How it works', href: '#how-it-works', isRoute: false },
-  { label: 'For investors', href: '#who-its-for', isRoute: false },
-  { label: 'For incubators', href: '#who-its-for', isRoute: false },
+  { label: 'How it works', href: '#how-it-works', external: false },
+  { label: 'Features', href: '#features', external: false },
+  { label: 'For investors', href: '#for-investors', external: false },
+  { label: 'For incubators', href: '#for-incubators', external: false },
+  { label: 'Blog', href: 'https://foundercentral.in/blog', external: true },
+  { label: 'Newsletter', href: '#newsletter', external: false },
+  { label: 'About', href: '#about', external: false },
+  { label: 'FAQ', href: '#faq', external: false },
 ] as const
 
+// Tight enough that all eight links stay on one line at lg (1024px).
 const linkCls =
-  'rounded-lg px-3 py-2 text-[13.5px] font-medium transition-colors [color:var(--muted)] hover:[background:var(--surface-2)] hover:[color:var(--ink)]'
+  'whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors [color:var(--muted)] hover:[background:var(--surface-2)] hover:[color:var(--ink)]'
 
 export function RedesignNav() {
   const [scrolled, setScrolled] = useState(false)
@@ -47,10 +53,10 @@ export function RedesignNav() {
         </Link>
 
         {/* Three links, centered */}
-        <div className="hidden flex-1 items-center justify-center gap-1 lg:flex">
+        <div className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
           {NAV_LINKS.map(link =>
-            link.isRoute ? (
-              <Link key={link.href} to={link.href} className={linkCls}>{link.label}</Link>
+            link.external ? (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={linkCls}>{link.label}</a>
             ) : (
               <a key={link.href} href={link.href} className={linkCls}>{link.label}</a>
             ),
@@ -114,13 +120,11 @@ export function RedesignNav() {
             }}
           >
             <div className="flex flex-col gap-0.5 px-5 py-3 sm:px-10">
-              {NAV_LINKS.map(link =>
-                link.isRoute ? (
-                  <Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-[14px] font-medium" style={{ color: 'var(--ink)' }}>{link.label}</Link>
-                ) : (
-                  <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-[14px] font-medium" style={{ color: 'var(--ink)' }}>{link.label}</a>
-                ),
-              )}
+              {NAV_LINKS.map(link => (
+                <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
+                  {...(link.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                  className="rounded-lg px-3 py-2.5 text-[14px] font-medium" style={{ color: 'var(--ink)' }}>{link.label}</a>
+              ))}
               <div className="mt-2 flex flex-col gap-2 border-t pt-3" style={{ borderColor: 'rgba(15,23,42,0.06)' }}>
                 <Link to="/auth/login" onClick={() => setMobileOpen(false)} className="rounded-lg px-3 py-2.5 text-[14px] font-semibold" style={{ color: 'var(--ink)' }}>Sign in</Link>
                 <Link to="/auth/signup" onClick={() => setMobileOpen(false)} className="inline-flex items-center justify-center gap-1.5 rounded-xl font-semibold" style={{ height: 44, background: 'var(--gradient-primary)', color: 'white', fontSize: '14px' }}>
