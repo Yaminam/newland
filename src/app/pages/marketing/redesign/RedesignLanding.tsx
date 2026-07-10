@@ -13,6 +13,7 @@ import { HeroMatcher } from './sections/HeroMatcher'
 import { LiveTicker } from './sections/LiveTicker'
 import { Proof } from './sections/Proof'
 import { Audiences } from './sections/Audiences'
+import { NetworkMotif } from './sections/NetworkMotif'
 import { Transformation } from './sections/Transformation'
 import { FoundersBand } from './sections/FoundersBand'
 import { HubBento } from './sections/HubBento'
@@ -61,6 +62,7 @@ export function RedesignLanding() {
         <LiveTicker />
         <RevealOnScroll><Proof /></RevealOnScroll>
         <RevealOnScroll><Audiences setAudience={setAudience} /></RevealOnScroll>
+        <NetworkMotif />
         <RevealOnScroll><Transformation /></RevealOnScroll>
         <FoundersBand />
         <RevealOnScroll><HubBento /></RevealOnScroll>
