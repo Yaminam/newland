@@ -13,12 +13,14 @@ const POINTS: Record<Audience, string[]> = {
   incubators: ['Cohort dashboard: stage, ask, readiness', 'Send curated intros on their behalf', 'Pipeline visibility, every deal to close'],
 }
 
-export function Audiences({ setAudience }: { setAudience: (a: Audience) => void }) {
+// Each card jumps to that audience's own full section further down the page.
+const TARGET: Record<Audience, string> = { founders: '#how-it-works', investors: '#for-investors', incubators: '#for-incubators' }
+
+export function Audiences() {
   const reduce = useReducedMotion()
 
   const go = (a: Audience) => {
-    setAudience(a)
-    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
+    document.querySelector(TARGET[a])?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
   }
 
   return (

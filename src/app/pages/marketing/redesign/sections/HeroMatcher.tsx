@@ -6,22 +6,23 @@ import { MatchRing } from '@/app/components/ui/MatchRing'
 import { CountUp } from '../CountUp'
 import { useMatcher } from '../useMatcher'
 import { STAGES, SECTORS, CITIES } from '../data'
-import { AUDIENCES, TONE, InvestorPanel, IncubatorPanel, type Audience } from '../audiences'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const listV: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.09 } } }
 const rowV: Variants = { hidden: { opacity: 0, x: 14 }, show: { opacity: 1, x: 0, transition: { duration: 0.42, ease: EASE } } }
+const leftV: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }
+const item: Variants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } } }
 
 const PICK_TONE = { blue: { c: 'var(--rd-blue)', bg: 'var(--rd-blue-bg)' }, gold: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)' }, green: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)' } }
 const typeAccent: Record<string, string> = { VC: '#6366F1', Angel: 'var(--rd-blue)', 'Micro-VC': '#0D9488', 'Family office': 'var(--rd-green)' }
 
-const CAPTION: Record<Audience, string> = {
-  founders: 'Answer three quick questions to see your live matches.',
-  investors: 'A live look at deal flow matched to your thesis.',
-  incubators: 'A live look at your cohort’s fundraise, end to end.',
-}
+const STATS = [
+  { count: 5000, suffix: '+', label: 'in the directory' },
+  { count: 192, label: 'human-verified', accent: true },
+  { count: 47, label: 'active grants' },
+]
 
-/* ── Founders: the 3-step matcher wizard ──────────────────────────────── */
+/* ── The 3-step matcher wizard ────────────────────────────────────────── */
 function FounderWizard() {
   const reduce = useReducedMotion()
   const m = useMatcher()
@@ -145,110 +146,69 @@ function FounderWizard() {
   )
 }
 
-/* ── Hero with the three-audience toggle ──────────────────────────────── */
-export function HeroMatcher({ audience, setAudience }: { audience: Audience; setAudience: (a: Audience) => void }) {
+/* ── Hero. Founder-first: they're the demand side and the acquisition
+      engine. Investors and incubators get their own full sections below. ── */
+export function HeroMatcher() {
   const reduce = useReducedMotion()
-  const cfg = AUDIENCES[audience]
-  const tone = TONE[audience]
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative z-[1] mx-auto grid max-w-6xl items-center gap-12 px-6 pb-16 pt-12 sm:px-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:pb-24 lg:pt-16">
-        {/* ── Left ── */}
-        <div>
-          {/* Audience toggle */}
-          <div className="mb-7 inline-flex flex-wrap gap-1.5 rounded-2xl p-1.5" style={{ background: 'var(--rd-surface)', border: '1px solid var(--rd-border)', boxShadow: '0 2px 8px rgba(13,27,42,0.05)' }}>
-            {(Object.keys(AUDIENCES) as Audience[]).map(k => {
-              const a = AUDIENCES[k]
-              const Icon = a.icon
-              const on = k === audience
-              const t = TONE[k]
-              return (
-                <button key={k} type="button" onClick={() => setAudience(k)}
-                  className="inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-[13px] font-bold transition-all"
-                  style={{ background: on ? t.bg : 'transparent', color: on ? t.c : 'var(--rd-muted)', border: `1px solid ${on ? t.br : 'transparent'}` }}>
-                  <Icon className="h-3.5 w-3.5" /> {a.tab}
-                </button>
-              )
-            })}
-          </div>
+      <div className="relative z-[1] mx-auto grid max-w-6xl items-center gap-12 px-6 pb-16 pt-14 sm:px-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:pb-24 lg:pt-20">
+        <motion.div variants={leftV} initial={reduce ? false : 'hidden'} animate={reduce ? false : 'show'}>
+          <motion.span variants={item} className="rd-eyebrow mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: 'var(--rd-green)', animation: reduce ? undefined : 'rdPing 2s cubic-bezier(0,0,0.2,1) infinite' }} />
+              <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: 'var(--rd-green)' }} />
+            </span>
+            192 verified investors, matching live
+          </motion.span>
 
-          <AnimatePresence mode="wait">
-            <motion.div key={audience}
-              initial={reduce ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, ease: EASE }}>
+          <motion.h1 variants={item} className="font-bold" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.6rem, 5vw, 4.5rem)', lineHeight: 0.99, letterSpacing: '-0.045em', color: 'var(--rd-ink)' }}>
+            Meet the investors who <span className="rd-grad-text">fit your round.</span>
+          </motion.h1>
 
-              <span className="mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[0.14em]"
-                style={{ background: tone.bg, color: tone.c, border: `1px solid ${tone.br}` }}>
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: tone.c, animation: reduce ? undefined : 'rdPing 2s cubic-bezier(0,0,0.2,1) infinite' }} />
-                  <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: tone.c }} />
-                </span>
-                {cfg.eyebrow}
-              </span>
+          <motion.p variants={item} className="mt-5 max-w-md" style={{ fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)', lineHeight: 1.6, color: 'var(--rd-muted)' }}>
+            Answer three quick questions and real investors from our directory rank themselves against you in seconds. No cold emails, no signup just to look.
+          </motion.p>
 
-              <h1 className="font-bold" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 4.8vw, 4.3rem)', lineHeight: 0.99, letterSpacing: '-0.045em', color: 'var(--rd-ink)' }}>
-                {cfg.headLead} <span className="rd-grad-text">{cfg.headAccent}</span>
-              </h1>
+          <motion.div variants={item} className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <Link to="/auth/signup" className="rd-btn rd-btn-primary w-full sm:w-auto" style={{ height: 54, padding: '0 26px', fontSize: '15.5px' }}>
+              Get started free <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a href="#how-it-works" className="rd-btn rd-btn-ghost w-full sm:w-auto" style={{ height: 54, padding: '0 22px', fontSize: '15px' }}>See how it works</a>
+          </motion.div>
 
-              <p className="mt-5 max-w-md" style={{ fontSize: 'clamp(1.02rem, 1.4vw, 1.15rem)', lineHeight: 1.6, color: 'var(--rd-muted)' }}>{cfg.sub}</p>
+          <motion.div variants={item} className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] font-medium" style={{ color: 'var(--rd-muted-2)' }}>
+            {['Free for founders', 'No credit card', 'Zero cold emails'].map(t => (
+              <span key={t} className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5" style={{ color: 'var(--rd-green)' }} strokeWidth={3} /> {t}</span>
+            ))}
+          </motion.div>
 
-              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                <Link to="/auth/signup" className="rd-btn rd-btn-primary w-full sm:w-auto" style={{ height: 54, padding: '0 26px', fontSize: '15.5px' }}>
-                  {cfg.cta} <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a href="#how-it-works" className="rd-btn rd-btn-ghost w-full sm:w-auto" style={{ height: 54, padding: '0 22px', fontSize: '15px' }}>See how it works</a>
+          <motion.div variants={item} className="mt-8 flex flex-wrap items-end gap-x-8 gap-y-4 border-t pt-6" style={{ borderColor: 'var(--rd-border)' }}>
+            {STATS.map(s => (
+              <div key={s.label}>
+                <div className="rd-num flex items-center gap-1 text-[27px] font-extrabold leading-none" style={{ color: s.accent ? 'var(--rd-gold)' : 'var(--rd-ink)' }}>
+                  <CountUp to={s.count} suffix={s.suffix} />{s.accent && <BadgeCheck className="h-4 w-4" />}
+                </div>
+                <div className="mt-1.5 text-[12px]" style={{ color: 'var(--rd-muted-2)' }}>{s.label}</div>
               </div>
+            ))}
+          </motion.div>
+        </motion.div>
 
-              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] font-medium" style={{ color: 'var(--rd-muted-2)' }}>
-                {cfg.trust.map(t => (
-                  <span key={t} className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5" style={{ color: 'var(--rd-green)' }} strokeWidth={3} /> {t}</span>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-wrap items-end gap-x-8 gap-y-4 border-t pt-6" style={{ borderColor: 'var(--rd-border)' }}>
-                {cfg.stats.map(s => (
-                  <div key={s.label}>
-                    <div className="rd-num flex items-center gap-1 text-[27px] font-extrabold leading-none" style={{ color: s.accent ? tone.c : 'var(--rd-ink)' }}>
-                      {s.count !== undefined ? <CountUp to={s.count} suffix={s.suffix} /> : s.big}
-                      {s.accent && audience === 'founders' && <BadgeCheck className="h-4 w-4" />}
-                    </div>
-                    <div className="mt-1.5 text-[12px]" style={{ color: 'var(--rd-muted-2)' }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* ── Right: the live product, tinted per audience ── */}
+        {/* Right: the live product */}
         <div className="relative" style={{ perspective: 1500 }}>
-          <motion.div aria-hidden className="pointer-events-none absolute -inset-8 z-0"
-            animate={{ background: `radial-gradient(circle at 55% 38%, ${tone.glow}, transparent 58%), radial-gradient(circle at 28% 85%, rgba(214,155,52,0.14), transparent 58%)` }}
-            transition={{ duration: 0.5 }}
-            style={{ filter: 'blur(24px)' }} />
-
+          <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 55% 38%, rgba(37,99,235,0.22), transparent 58%), radial-gradient(circle at 28% 85%, rgba(214,155,52,0.16), transparent 58%)', filter: 'blur(24px)' }} />
           <motion.div style={{ transformPerspective: 1500 }}
             initial={reduce ? false : { opacity: 0, rotateY: -16, rotateX: 7, y: 24 }}
             animate={reduce ? false : { opacity: 1, rotateY: -12, rotateX: 6, y: 0 }}
             whileHover={reduce ? undefined : { rotateY: 0, rotateX: 0 }}
             transition={{ duration: 0.6, ease: EASE }}>
-            <div style={{ minHeight: 430 }}>
-              <AnimatePresence mode="wait">
-                <motion.div key={audience}
-                  initial={reduce ? false : { opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduce ? undefined : { opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: EASE }}>
-                  {audience === 'founders' ? <FounderWizard /> : audience === 'investors' ? <InvestorPanel /> : <IncubatorPanel />}
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            <FounderWizard />
           </motion.div>
-
-          <p className="mt-5 text-center text-[12.5px] lg:text-right" style={{ color: 'var(--rd-muted-2)' }}>{CAPTION[audience]}</p>
+          <p className="mt-5 text-center text-[12.5px] lg:text-right" style={{ color: 'var(--rd-muted-2)' }}>
+            Answer three quick questions to see your live matches.
+          </p>
         </div>
       </div>
     </section>

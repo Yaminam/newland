@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { SEO } from '@/app/components/SEO'
-import type { Audience } from './audiences'
 import { ScrollProgress } from '../lib/ScrollProgress'
 import { RevealOnScroll } from '../lib/RevealOnScroll'
 // Reused verbatim from the existing marketing folder:
@@ -14,6 +12,8 @@ import { LiveTicker } from './sections/LiveTicker'
 import { Proof } from './sections/Proof'
 import { Audiences } from './sections/Audiences'
 import { NetworkMotif } from './sections/NetworkMotif'
+import { ForInvestors } from './sections/ForInvestors'
+import { ForIncubators } from './sections/ForIncubators'
 import { Transformation } from './sections/Transformation'
 import { FoundersBand } from './sections/FoundersBand'
 import { HubBento } from './sections/HubBento'
@@ -37,8 +37,6 @@ export function RedesignLanding() {
   const reduce = useReducedMotion()
   const { scrollY } = useScroll()
   const auroraY = useTransform(scrollY, [0, 900], [0, 180])
-  // Which side of the marketplace the hero is speaking to.
-  const [audience, setAudience] = useState<Audience>('founders')
 
   return (
     <div className="fc-redesign" style={{ position: 'relative', minHeight: '100dvh' }}>
@@ -58,10 +56,10 @@ export function RedesignLanding() {
       <ScrollProgress />
       <RedesignNav />
       <main className="relative" style={{ zIndex: 1 }}>
-        <HeroMatcher audience={audience} setAudience={setAudience} />
+        <HeroMatcher />
         <LiveTicker />
         <RevealOnScroll><Proof /></RevealOnScroll>
-        <RevealOnScroll><Audiences setAudience={setAudience} /></RevealOnScroll>
+        <RevealOnScroll><Audiences /></RevealOnScroll>
         <NetworkMotif />
         <RevealOnScroll><Transformation /></RevealOnScroll>
         <FoundersBand />
@@ -70,6 +68,8 @@ export function RedesignLanding() {
         <RevealOnScroll><LiveHub /></RevealOnScroll>
         <RevealOnScroll><FreeVsGated /></RevealOnScroll>
         <HowItWorks />
+        <ForInvestors />
+        <ForIncubators />
         <RevealOnScroll><FAQ /></RevealOnScroll>
         <RevealOnScroll><FinalCTA /></RevealOnScroll>
       </main>
