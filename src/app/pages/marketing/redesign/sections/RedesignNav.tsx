@@ -11,14 +11,20 @@ interface NavGroupDef { label: string; items: NavItem[] }
 
 /* Three umbrella terms instead of eight links. Labels are deliberately
    plain so nobody has to guess what's behind them; the personality lives
-   in the item descriptions. Everything is an on-page anchor except the
-   Blog, which lives on the main site. */
+   in the item descriptions.
+ *
+ * ORDER MATTERS: menus, and the items inside them, follow the page's
+ * top-to-bottom order. Reading the nav left-to-right and each dropdown
+ * top-to-bottom always walks you further DOWN the page, never back up.
+ * Page order: #features (11) → #how-it-works (18) → #for-founders (19)
+ * → #for-investors (20) → #for-incubators (21) → #about (23)
+ * → #newsletter (25) → #faq (27). Blog is external, so it sits last. */
 const NAV: NavGroupDef[] = [
   {
     label: 'Product',
     items: [
-      { label: 'How it works', href: '#how-it-works', desc: 'From match to warm intro in three moves.' },
       { label: 'Features', href: '#features', desc: 'Everything a raising founder needs.' },
+      { label: 'How it works', href: '#how-it-works', desc: 'From match to warm intro in three moves.' },
     ],
   },
   {
@@ -32,10 +38,10 @@ const NAV: NavGroupDef[] = [
   {
     label: 'Resources',
     items: [
-      { label: 'Blog', href: 'https://foundercentral.in/blog', desc: 'Writing on raising in India.', external: true },
-      { label: 'Newsletter', href: '#newsletter', desc: 'Fundraising insights, every Monday.' },
       { label: 'About', href: '#about', desc: 'Why we exist, and what we won’t bend on.' },
+      { label: 'Newsletter', href: '#newsletter', desc: 'Fundraising insights, every Monday.' },
       { label: 'FAQ', href: '#faq', desc: 'Honest answers to the awkward questions.' },
+      { label: 'Blog', href: 'https://foundercentral.in/blog', desc: 'Writing on raising in India.', external: true },
     ],
   },
 ]

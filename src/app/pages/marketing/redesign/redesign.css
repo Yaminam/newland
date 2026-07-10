@@ -52,6 +52,10 @@
   position: relative;
 }
 
+/* Anchor jumps must clear the 64px sticky nav, or the section heading
+   lands underneath it. */
+.fc-redesign section[id] { scroll-margin-top: 88px; }
+
 /* ── Ambient aurora: soft drifting color washes for depth (light) ── */
 .rd-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .rd-aurora span { position: absolute; border-radius: 50%; filter: blur(64px); will-change: transform; contain: paint; }
