@@ -8,7 +8,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const list: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.04 } } }
 const col: Variants = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } } }
 
-const NEWS_TONES = ['#2563EB', '#0D9488', '#B7791F']
+const NEWS_TONES = ['#2563EB', '#1D4ED8', '#1E3A8A']
 
 function Card({ icon: Icon, label, more, children }: { icon: typeof GraduationCap; label: string; more: string; children: React.ReactNode }) {
   return (
@@ -59,7 +59,7 @@ export function LiveHub() {
           <Card icon={GraduationCap} label="Grants" more="+ 44 more you may qualify for">
             {GRANTS.map(g => (
               <div key={g.title} className="flex items-center gap-3" style={rowStyle}>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(183,121,31,0.2)' }}>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(30,58,138,0.2)' }}>
                   <Award className="h-4 w-4" />
                 </span>
                 <div className="min-w-0 flex-1">

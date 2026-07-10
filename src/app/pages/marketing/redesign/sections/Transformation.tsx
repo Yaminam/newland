@@ -14,9 +14,9 @@ const chip: Variants = { hidden: { opacity: 0, y: 14, filter: 'blur(4px)' }, sho
 function Frame({ title, tone, children }: { title: string; tone: 'bad' | 'good'; children: ReactNode }) {
   const bad = tone === 'bad'
   return (
-    <div className="overflow-hidden rounded-3xl" style={{ background: 'var(--rd-surface)', border: `1px solid ${bad ? '#F3D3C6' : 'var(--rd-border)'}`, boxShadow: bad ? '0 20px 44px -28px rgba(194,65,12,0.35)' : '0 30px 64px -30px rgba(37,99,235,0.4)' }}>
-      <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: `1px solid ${bad ? '#F3D3C6' : 'var(--rd-border)'}`, background: bad ? 'var(--rd-red-bg)' : 'var(--rd-surface-2)' }}>
-        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#F87171' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#FBBF24' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#34D399' }} /></span>
+    <div className="overflow-hidden rounded-3xl" style={{ background: 'var(--rd-surface)', border: `1px solid ${bad ? '#DDE3EC' : 'var(--rd-border)'}`, boxShadow: bad ? '0 20px 44px -28px rgba(100,116,139,0.35)' : '0 30px 64px -30px rgba(37,99,235,0.4)' }}>
+      <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: `1px solid ${bad ? '#DDE3EC' : 'var(--rd-border)'}`, background: bad ? 'var(--rd-red-bg)' : 'var(--rd-surface-2)' }}>
+        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#BFDBFE' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#60A5FA' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#2563EB' }} /></span>
         <span className="ml-1.5 text-[12px] font-bold" style={{ color: bad ? 'var(--rd-red)' : 'var(--rd-ink)', fontFamily: 'var(--font-display)' }}>{title}</span>
       </div>
       <div className="p-4">{children}</div>
@@ -55,8 +55,8 @@ export function Transformation() {
             <Frame title="Sent · no reply" tone="bad">
               <div className="flex flex-col gap-2">
                 {SENT.map(m => (
-                  <motion.div key={m.subject} variants={reduce ? undefined : chip} className="flex items-start gap-2.5 rounded-xl p-2.5" style={{ background: 'var(--rd-red-bg)', border: '1px solid #F3D3C6' }}>
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ background: 'rgba(194,65,12,0.12)', color: 'var(--rd-red)' }}><X className="h-3 w-3" strokeWidth={3} /></span>
+                  <motion.div key={m.subject} variants={reduce ? undefined : chip} className="flex items-start gap-2.5 rounded-xl p-2.5" style={{ background: 'var(--rd-red-bg)', border: '1px solid #DDE3EC' }}>
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ background: 'rgba(100,116,139,0.12)', color: 'var(--rd-red)' }}><X className="h-3 w-3" strokeWidth={3} /></span>
                     <div className="min-w-0 flex-1">
                       <div className="truncate text-[12.5px] font-bold" style={{ color: 'var(--rd-ink-2)' }}>{m.subject}</div>
                       <div className="mt-1 flex items-center gap-1.5">
@@ -64,7 +64,7 @@ export function Transformation() {
                         <Blur t={m.to} w="w-24" />
                       </div>
                     </div>
-                    <span className="inline-flex shrink-0 items-center gap-1 rounded-md px-1.5 py-0.5 text-[9.5px] font-bold" style={{ background: 'rgba(194,65,12,0.1)', color: 'var(--rd-red)' }}>
+                    <span className="inline-flex shrink-0 items-center gap-1 rounded-md px-1.5 py-0.5 text-[9.5px] font-bold" style={{ background: 'rgba(100,116,139,0.1)', color: 'var(--rd-red)' }}>
                       <Clock className="h-2.5 w-2.5" /> {m.status}
                     </span>
                   </motion.div>
@@ -95,7 +95,7 @@ export function Transformation() {
                 </div>
               </motion.div>
 
-              <motion.div variants={reduce ? undefined : chip} className="mt-2 flex items-center gap-2 rounded-xl p-2.5" style={{ background: 'var(--rd-green-bg)', border: '1px solid rgba(18,136,90,0.22)' }}>
+              <motion.div variants={reduce ? undefined : chip} className="mt-2 flex items-center gap-2 rounded-xl p-2.5" style={{ background: 'var(--rd-green-bg)', border: '1px solid rgba(37,99,235,0.22)' }}>
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full" style={{ background: 'var(--rd-green)', color: '#fff' }}><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
                 <span className="text-[12px] font-bold" style={{ color: 'var(--rd-green)' }}>Intro accepted · emails exchanged</span>
               </motion.div>

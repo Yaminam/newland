@@ -29,7 +29,7 @@ export function FoundersBand() {
             transition={{ duration: 0.7, ease: EASE }}
           >
             <span className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[0.14em]"
-              style={{ background: 'rgba(240,185,90,0.16)', color: 'var(--rd-gold-br)', border: '1px solid rgba(240,185,90,0.28)' }}>
+              style={{ background: 'rgba(96,165,250,0.16)', color: 'var(--rd-gold-br)', border: '1px solid rgba(96,165,250,0.28)' }}>
               Why we built this
             </span>
             <h2 className="font-bold" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.1rem, 4.4vw, 3.6rem)', lineHeight: 1.05, letterSpacing: '-0.035em', color: '#fff' }}>

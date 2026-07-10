@@ -162,7 +162,7 @@ export function HubBento() {
           <Tilt className="md:col-span-3">
             <div className="relative grid items-center gap-6 overflow-hidden rounded-2xl p-7 md:grid-cols-[1fr_0.85fr]"
               style={{ background: 'linear-gradient(120deg,#2563EB,#1D4ED8 60%,#1E3A8A)', boxShadow: '0 24px 50px -24px rgba(37,99,235,0.55)' }}>
-              <div aria-hidden className="pointer-events-none absolute" style={{ top: '-50%', right: '8%', width: 260, height: 260, borderRadius: '50%', background: 'radial-gradient(circle, rgba(240,185,90,0.35), transparent 60%)', filter: 'blur(14px)' }} />
+              <div aria-hidden className="pointer-events-none absolute" style={{ top: '-50%', right: '8%', width: 260, height: 260, borderRadius: '50%', background: 'radial-gradient(circle, rgba(96,165,250,0.35), transparent 60%)', filter: 'blur(14px)' }} />
               <div className="relative">
                 <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: 'rgba(255,255,255,0.18)', color: '#fff' }}><Sparkles className="h-6 w-6" /></span>
                 <h3 className="font-bold" style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: '#fff' }}>AI copilot for your raise</h3>

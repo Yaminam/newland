@@ -59,7 +59,7 @@ export function FreeVsGated() {
                       </div>
                       <p className="text-[13px] leading-snug" style={{ color: 'var(--rd-muted)' }}>{r.free}</p>
                     </div>
-                    <div className="rounded-xl p-3.5" style={{ background: 'var(--rd-gold-bg)', border: '1px solid rgba(183,121,31,0.2)' }}>
+                    <div className="rounded-xl p-3.5" style={{ background: 'var(--rd-gold-bg)', border: '1px solid rgba(30,58,138,0.2)' }}>
                       <div className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em]" style={{ color: 'var(--rd-gold)' }}>
                         <Lock className="h-3.5 w-3.5" /> Unlocked
                       </div>

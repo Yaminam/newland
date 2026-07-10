@@ -6,8 +6,8 @@ export type Audience = 'founders' | 'investors' | 'incubators'
 
 export const TONE = {
   founders: { c: 'var(--rd-blue)', bg: 'var(--rd-blue-bg)', br: 'rgba(37,99,235,0.22)', glow: 'rgba(37,99,235,0.22)' },
-  investors: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)', br: 'rgba(183,121,31,0.24)', glow: 'rgba(214,155,52,0.20)' },
-  incubators: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)', br: 'rgba(18,136,90,0.24)', glow: 'rgba(18,136,90,0.18)' },
+  investors: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)', br: 'rgba(30,58,138,0.24)', glow: 'rgba(59,130,246,0.20)' },
+  incubators: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)', br: 'rgba(37,99,235,0.24)', glow: 'rgba(37,99,235,0.18)' },
 } as const
 
 /* ── Shared app-window frame ──────────────────────────────────────────── */
@@ -15,7 +15,7 @@ export function Frame({ title, right, children }: { title: string; right?: React
   return (
     <div className="rd-lit relative z-10">
       <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid var(--rd-border)' }}>
-        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#F87171' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#FBBF24' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#34D399' }} /></span>
+        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#BFDBFE' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#60A5FA' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#2563EB' }} /></span>
         <span className="ml-2 text-[12.5px] font-bold" style={{ color: 'var(--rd-ink)', fontFamily: 'var(--font-display)' }}>{title}</span>
         {right && <span className="ml-auto">{right}</span>}
       </div>
@@ -78,7 +78,7 @@ export function InvestorPanel() {
       <div className="mb-3 flex flex-wrap items-center gap-1.5">
         <span className="text-[10.5px] font-bold uppercase tracking-[0.1em]" style={{ color: 'var(--rd-muted-2)' }}>Your thesis</span>
         {['Seed', 'SaaS', 'India'].map(t => (
-          <span key={t} className="rounded-md px-2 py-0.5 text-[10.5px] font-bold" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(183,121,31,0.2)' }}>{t}</span>
+          <span key={t} className="rounded-md px-2 py-0.5 text-[10.5px] font-bold" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(30,58,138,0.2)' }}>{t}</span>
         ))}
       </div>
       <div className="flex flex-col gap-2">

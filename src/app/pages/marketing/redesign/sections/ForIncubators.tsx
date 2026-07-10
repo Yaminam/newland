@@ -28,13 +28,13 @@ export function ForIncubators() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-70px' }}
             transition={{ duration: 0.7, ease: EASE }}>
-            <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(18,136,90,0.18), transparent 60%)', filter: 'blur(24px)' }} />
+            <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(37,99,235,0.18), transparent 60%)', filter: 'blur(24px)' }} />
             <IncubatorPanel />
           </motion.div>
 
           <motion.div className="order-1" variants={reduce ? undefined : list} initial={reduce ? false : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-70px' }}>
             <motion.span variants={reduce ? undefined : item} className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-[0.14em]"
-              style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)', border: '1px solid rgba(18,136,90,0.22)' }}>
+              style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)', border: '1px solid rgba(37,99,235,0.22)' }}>
               For incubators &amp; accelerators
             </motion.span>
 
@@ -52,7 +52,7 @@ export function ForIncubators() {
                 const Icon = p.icon
                 return (
                   <div key={p.title}>
-                    <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)', border: '1px solid rgba(18,136,90,0.2)' }}>
+                    <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'var(--rd-green-bg)', color: 'var(--rd-green)', border: '1px solid rgba(37,99,235,0.2)' }}>
                       <Icon className="h-[19px] w-[19px]" />
                     </span>
                     <div className="font-bold" style={{ fontFamily: 'var(--font-display)', fontSize: '15.5px', color: 'var(--rd-ink)' }}>{p.title}</div>

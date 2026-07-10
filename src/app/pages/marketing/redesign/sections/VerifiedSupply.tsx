@@ -48,7 +48,7 @@ export function VerifiedSupply() {
                 <div className="rd-num text-[38px] font-extrabold leading-none" style={{ color: 'var(--rd-ink)' }}><CountUp to={5000} suffix="+" /></div>
                 <div className="mt-2 text-[13px]" style={{ color: 'var(--rd-muted)' }}>in the directory</div>
               </div>
-              <div className="flex-1 rounded-2xl p-5" style={{ background: 'var(--rd-gold-bg)', border: '1px solid rgba(183,121,31,0.22)' }}>
+              <div className="flex-1 rounded-2xl p-5" style={{ background: 'var(--rd-gold-bg)', border: '1px solid rgba(30,58,138,0.22)' }}>
                 <div className="rd-num flex items-center gap-1.5 text-[38px] font-extrabold leading-none" style={{ color: 'var(--rd-gold)' }}>
                   <CountUp to={192} /> <BadgeCheck className="h-6 w-6" />
                 </div>

@@ -40,7 +40,7 @@ export function ForInvestors() {
                 const Icon = p.icon
                 return (
                   <div key={p.title} className="flex items-start gap-3.5">
-                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(183,121,31,0.2)' }}>
+                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl" style={{ background: 'var(--rd-gold-bg)', color: 'var(--rd-gold)', border: '1px solid rgba(30,58,138,0.2)' }}>
                       <Icon className="h-[19px] w-[19px]" />
                     </span>
                     <div>
@@ -70,7 +70,7 @@ export function ForInvestors() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-70px' }}
             transition={{ duration: 0.7, ease: EASE }}>
-            <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 55% 40%, rgba(214,155,52,0.2), transparent 60%)', filter: 'blur(24px)' }} />
+            <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 55% 40%, rgba(59,130,246,0.2), transparent 60%)', filter: 'blur(24px)' }} />
             <InvestorPanel />
           </motion.div>
         </div>

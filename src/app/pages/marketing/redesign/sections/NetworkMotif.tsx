@@ -59,17 +59,17 @@ export function NetworkMotif() {
                   <stop offset="100%" stopColor="#2563EB" stopOpacity="0.85" />
                 </linearGradient>
                 <linearGradient id="lnkI" x1="1" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#B7791F" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#B7791F" stopOpacity="0.85" />
+                  <stop offset="0%" stopColor="#1E3A8A" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0.85" />
                 </linearGradient>
                 <linearGradient id="lnkC" x1="0" y1="1" x2="0" y2="0">
-                  <stop offset="0%" stopColor="#12885A" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#12885A" stopOpacity="0.85" />
+                  <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.85" />
                 </linearGradient>
                 <linearGradient id="lnkArc" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#2563EB" />
-                  <stop offset="50%" stopColor="#D69B34" />
-                  <stop offset="100%" stopColor="#B7791F" />
+                  <stop offset="50%" stopColor="#93C5FD" />
+                  <stop offset="100%" stopColor="#1E3A8A" />
                 </linearGradient>
               </defs>
 

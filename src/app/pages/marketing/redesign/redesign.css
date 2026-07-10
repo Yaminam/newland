@@ -22,18 +22,30 @@
   --rd-blue:      #2563EB;
   --rd-blue-br:   #3B82F6;
   --rd-blue-bg:   #EAF1FE;
-  --rd-gold:      #B7791F;   /* deep readable gold on light */
-  --rd-gold-br:   #D69B34;
-  --rd-gold-bg:   #FCF4E5;
-  --rd-green:     #12885A;
-  --rd-green-bg:  #E6F6EF;
-  --rd-red:       #C2410C;
-  --rd-red-bg:    #FDEEE7;
+  /* Single-hue system. The only brand colour is the logo blue #2563EB.
+     The "gold" and "green" roles are kept as names so components don't all
+     need rewriting, but they now resolve to deeper shades of the same blue.
+     "red" is a neutral slate: it marks a dead state, not a brand colour. */
+  --rd-gold:      #1E3A8A;   /* deep blue: verified / premium / locked */
+  --rd-gold-br:   #93C5FD;   /* light blue, for use on navy panels */
+  --rd-gold-bg:   #E6EDFA;
+  --rd-green:     #1D4ED8;   /* mid blue: live / success / accepted */
+  --rd-green-bg:  #E8EEFC;
+  --rd-red:       #64748B;   /* slate: ignored / no reply */
+  --rd-red-bg:    #F1F4F8;
+
+  /* Shared app components (MatchRing) read these. Pin them to the blue
+     scale so fit rings never render green or amber. */
+  --pos:       #1E3A8A;
+  --blue:      #2563EB;
+  --warn:      #60A5FA;
+  --faint:     #B7C0D8;
+  --surface-3: #E4E9F5;
 
   /* All blues stay in the logo's family: #2563EB → #3B82F6 → #60A5FA. */
   --rd-grad:      linear-gradient(135deg, #2563EB 0%, #3B82F6 55%, #60A5FA 100%);
-  --rd-grad-gold: linear-gradient(135deg, #B7791F 0%, #E0A94A 100%);
-  --rd-grad-mix:  linear-gradient(115deg, #2563EB 0%, #3B82F6 42%, #B7791F 100%);
+  --rd-grad-gold: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  --rd-grad-mix:  linear-gradient(115deg, #1E3A8A 0%, #2563EB 45%, #60A5FA 100%);
 
   background: var(--rd-bg);
   color: var(--rd-ink);
@@ -45,7 +57,7 @@
 .rd-aurora span { position: absolute; border-radius: 50%; filter: blur(64px); will-change: transform; contain: paint; }
 .rd-aurora .a1 { top: -14%; left: -8%;  width: 44vw; height: 44vw; background: radial-gradient(circle, rgba(37,99,235,0.20), transparent 62%); animation: rdDrift1 24s ease-in-out infinite; }
 .rd-aurora .a2 { top: 2%;   right: -12%;width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(30,64,175,0.16), transparent 62%); animation: rdDrift2 28s ease-in-out infinite; }
-.rd-aurora .a3 { bottom: -22%; left: 30%; width: 38vw; height: 38vw; background: radial-gradient(circle, rgba(214,155,52,0.14), transparent 60%); animation: rdDrift3 32s ease-in-out infinite; }
+.rd-aurora .a3 { bottom: -22%; left: 30%; width: 38vw; height: 38vw; background: radial-gradient(circle, rgba(59,130,246,0.14), transparent 60%); animation: rdDrift3 32s ease-in-out infinite; }
 
 @keyframes rdDrift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(6%,8%) scale(1.12)} }
 @keyframes rdDrift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-7%,6%) scale(1.08)} }
@@ -84,7 +96,7 @@
 }
 .rd-lit::before {
   content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
-  background: linear-gradient(155deg, rgba(37,99,235,0.7), rgba(13,27,42,0.06) 42%, rgba(183,121,31,0.45));
+  background: linear-gradient(155deg, rgba(37,99,235,0.7), rgba(13,27,42,0.06) 42%, rgba(30,58,138,0.45));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
@@ -107,7 +119,7 @@
   color: var(--rd-blue); background: var(--rd-blue-bg);
   border: 1px solid rgba(37,99,235,0.16);
 }
-.rd-eyebrow.gold { color: var(--rd-gold); background: var(--rd-gold-bg); border-color: rgba(183,121,31,0.2); }
+.rd-eyebrow.gold { color: var(--rd-gold); background: var(--rd-gold-bg); border-color: rgba(30,58,138,0.2); }
 
 /* ── Divider ── */
 .rd-hr { height: 1px; background: linear-gradient(90deg, transparent, var(--rd-border-2), transparent); }
@@ -125,7 +137,7 @@
 }
 .rd-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 42px -14px rgba(37,99,235,0.65), inset 0 1px 0 rgba(255,255,255,0.35); }
 .rd-btn-primary:active { transform: translateY(0) scale(0.98); }
-.rd-btn-gold { background: var(--rd-grad-gold); color: #fff; box-shadow: 0 14px 30px -12px rgba(183,121,31,0.5); }
+.rd-btn-gold { background: var(--rd-grad-gold); color: #fff; box-shadow: 0 14px 30px -12px rgba(30,58,138,0.5); }
 .rd-btn-gold:hover { transform: translateY(-2px); }
 .rd-btn-dark { background: var(--rd-ink); color: #fff; box-shadow: 0 14px 30px -14px rgba(13,27,42,0.55); }
 .rd-btn-dark:hover { transform: translateY(-2px); }
@@ -142,7 +154,7 @@
 }
 @keyframes rdShimmer { to { background-position: 200% center; } }
 .rd-shimmer {
-  background: linear-gradient(110deg, #2563EB 0%, #3B82F6 28%, #D69B34 50%, #3B82F6 72%, #2563EB 100%);
+  background: linear-gradient(110deg, #2563EB 0%, #3B82F6 28%, #93C5FD 50%, #3B82F6 72%, #2563EB 100%);
   background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
   color: transparent; -webkit-text-fill-color: transparent; padding-bottom: 0.06em;
   animation: rdShimmer 5s linear infinite;

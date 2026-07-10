@@ -14,7 +14,7 @@ const leftV: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.0
 const item: Variants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } } }
 
 const PICK_TONE = { blue: { c: 'var(--rd-blue)', bg: 'var(--rd-blue-bg)' }, gold: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)' }, green: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)' } }
-const typeAccent: Record<string, string> = { VC: '#6366F1', Angel: 'var(--rd-blue)', 'Micro-VC': '#0D9488', 'Family office': 'var(--rd-green)' }
+const typeAccent: Record<string, string> = { VC: '#1E3A8A', Angel: 'var(--rd-blue)', 'Micro-VC': '#1D4ED8', 'Family office': 'var(--rd-green)' }
 
 const STATS = [
   { count: 5000, suffix: '+', label: 'in the directory' },
@@ -48,7 +48,7 @@ function FounderWizard() {
   return (
     <div className="rd-lit relative z-10">
       <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: '1px solid var(--rd-border)' }}>
-        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#F87171' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#FBBF24' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#34D399' }} /></span>
+        <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#BFDBFE' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#60A5FA' }} /><i className="h-2.5 w-2.5 rounded-full" style={{ background: '#2563EB' }} /></span>
         <span className="ml-2 text-[12.5px] font-bold" style={{ color: 'var(--rd-ink)', fontFamily: 'var(--font-display)' }}>Investor Match</span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: 'var(--rd-green)' }}>
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: 'var(--rd-green)' }} />
@@ -198,7 +198,7 @@ export function HeroMatcher() {
 
         {/* Right: the live product */}
         <div className="relative" style={{ perspective: 1500 }}>
-          <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 55% 38%, rgba(37,99,235,0.22), transparent 58%), radial-gradient(circle at 28% 85%, rgba(214,155,52,0.16), transparent 58%)', filter: 'blur(24px)' }} />
+          <div aria-hidden className="pointer-events-none absolute -inset-8 z-0" style={{ background: 'radial-gradient(circle at 55% 38%, rgba(37,99,235,0.22), transparent 58%), radial-gradient(circle at 28% 85%, rgba(59,130,246,0.16), transparent 58%)', filter: 'blur(24px)' }} />
           <motion.div style={{ transformPerspective: 1500 }}
             initial={reduce ? false : { opacity: 0, rotateY: -16, rotateX: 7, y: 24 }}
             animate={reduce ? false : { opacity: 1, rotateY: -12, rotateX: 6, y: 0 }}

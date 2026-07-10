@@ -20,7 +20,7 @@ export function FinalCTA() {
           {/* Ambient depth glows + gold warmth */}
           <div aria-hidden className="pointer-events-none absolute inset-0">
             <div className="absolute" style={{ top: '-32%', right: '-8%', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.28), transparent 62%)', filter: 'blur(24px)' }} />
-            <div className="absolute" style={{ bottom: '-42%', left: '-6%', width: 440, height: 440, borderRadius: '50%', background: 'radial-gradient(circle, rgba(240,185,90,0.35), transparent 62%)', filter: 'blur(28px)' }} />
+            <div className="absolute" style={{ bottom: '-42%', left: '-6%', width: 440, height: 440, borderRadius: '50%', background: 'radial-gradient(circle, rgba(96,165,250,0.35), transparent 62%)', filter: 'blur(28px)' }} />
           </div>
 
           <div className="relative">

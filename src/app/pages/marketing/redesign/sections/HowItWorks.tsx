@@ -12,7 +12,7 @@ function Frame({ title, children }: { title: string; children: React.ReactNode }
   return (
     <div className="overflow-hidden rounded-2xl" style={{ background: 'var(--rd-surface)', border: '1px solid var(--rd-border)', boxShadow: '0 24px 50px -28px rgba(13,27,42,0.4), 0 2px 6px rgba(13,27,42,0.05)' }}>
       <div className="flex items-center gap-2 px-3 py-2.5" style={{ borderBottom: '1px solid var(--rd-border)' }}>
-        <span className="flex gap-1"><i className="h-2 w-2 rounded-full" style={{ background: '#F87171' }} /><i className="h-2 w-2 rounded-full" style={{ background: '#FBBF24' }} /><i className="h-2 w-2 rounded-full" style={{ background: '#34D399' }} /></span>
+        <span className="flex gap-1"><i className="h-2 w-2 rounded-full" style={{ background: '#BFDBFE' }} /><i className="h-2 w-2 rounded-full" style={{ background: '#60A5FA' }} /><i className="h-2 w-2 rounded-full" style={{ background: '#2563EB' }} /></span>
         <span className="ml-1.5 text-[11px] font-bold" style={{ color: 'var(--rd-ink)', fontFamily: 'var(--font-display)' }}>{title}</span>
       </div>
       <div className="p-3">{children}</div>
@@ -70,7 +70,7 @@ function IntroPreview() {
 function AcceptedPreview() {
   return (
     <Frame title="Inbox">
-      <div className="flex items-center gap-2 rounded-lg p-2.5" style={{ background: 'var(--rd-green-bg)', border: '1px solid rgba(18,136,90,0.22)' }}>
+      <div className="flex items-center gap-2 rounded-lg p-2.5" style={{ background: 'var(--rd-green-bg)', border: '1px solid rgba(37,99,235,0.22)' }}>
         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full" style={{ background: 'var(--rd-green)', color: '#fff' }}><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
         <span className="text-[11.5px] font-bold" style={{ color: 'var(--rd-green)' }}>Intro accepted</span>
       </div>

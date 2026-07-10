@@ -11,8 +11,8 @@ interface InlinePickProps<T extends string> {
 
 const TONES = {
   blue: { c: 'var(--rd-blue)', bg: 'var(--rd-blue-bg)', br: 'rgba(37,99,235,0.28)' },
-  gold: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)', br: 'rgba(183,121,31,0.3)' },
-  green: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)', br: 'rgba(18,136,90,0.28)' },
+  gold: { c: 'var(--rd-gold)', bg: 'var(--rd-gold-bg)', br: 'rgba(30,58,138,0.3)' },
+  green: { c: 'var(--rd-green)', bg: 'var(--rd-green-bg)', br: 'rgba(37,99,235,0.28)' },
 }
 
 /** An editable "token" inside a sentence — reads as filled-in words, opens a menu. */
