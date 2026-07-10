@@ -160,12 +160,12 @@ export const AUDIENCES: Record<Audience, AudienceConfig> = {
     headLead: 'Your whole cohort,',
     headAccent: 'one portal.',
     sub: 'Every startup on one screen: stage, sector, ask and readiness. Send curated intros on their behalf, and watch every deal through to close.',
-    cta: 'Bring your program',
+    cta: 'Book a demo',
     stats: [
       { big: 'One', label: 'cohort dashboard' },
       { big: 'Every', label: 'intro tracked', accent: true },
       { big: 'Ready', label: 'before the first call' },
     ],
-    trust: ['Diligence checklists', 'Full pipeline visibility'],
+    trust: ['Free for incubators', 'Your whole cohort, one view'],
   },
 }

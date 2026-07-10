@@ -5,10 +5,12 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-
 import { FounderCentralLogo } from '@/app/components/FounderCentralLogo'
 
 // The redesign cuts the navbar to the decision: three ways in, one smart CTA.
+// Landing-only build: every link is an on-page anchor. The audience links
+// point at the "Who it's for" section, which routes back to the hero toggle.
 const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works', isRoute: false },
-  { label: 'For investors', href: '/for-investors', isRoute: true },
-  { label: 'For incubators', href: '/for-incubators', isRoute: true },
+  { label: 'For investors', href: '#who-its-for', isRoute: false },
+  { label: 'For incubators', href: '#who-its-for', isRoute: false },
 ] as const
 
 const linkCls =
